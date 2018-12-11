@@ -1,0 +1,25 @@
+{
+    "records": [{
+        "name": "Cloud",
+        "items": [],
+        "url": "http://192.168.59.103:8888"
+    }],
+    "resources": [
+        {
+            "location": ".WebResources/docs.json",
+            "type": "generated"
+        },
+        {
+            "location": ".WebResources/Books",
+            "type": "generated"
+        },
+        {
+            "location": ".WebResources/Events",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/tibco.bw.sample.binding.rest.bookstore.Books-Books.json",
+            "type": "generated"
+        }
+    ]
+}

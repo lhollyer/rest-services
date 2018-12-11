@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="/T1544457296060Converted/JsonSchema" xmlns:tns="/T1544457296060Converted/JsonSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="order" type="tns:order"/>
+    <xs:complexType name="order">
+        <xs:sequence>
+            <xs:element name="orderId" type="xs:string"/>
+            <xs:element name="lineItems">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="product" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="status" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="customer" type="tns:customer"/>
+    <xs:complexType name="customer">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="mobile" type="xs:string"/>
+            <xs:element name="address" type="xs:string"/>
+            <xs:element name="postcode" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="orderArray" type="tns:orderArray"/>
+    <xs:complexType name="orderArray">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="order" type="tns:order"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="successObject" type="tns:successObject"/>
+    <xs:complexType name="successObject">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="href" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="errorObject" type="tns:errorObject"/>
+    <xs:complexType name="errorObject">
+        <xs:sequence>
+            <xs:element name="errorId" type="xs:string"/>
+            <xs:element name="errorCode" type="xs:string"/>
+            <xs:element name="errorMsg" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="customerArray" type="tns:customerArray"/>
+    <xs:complexType name="customerArray">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="customer" type="tns:customer"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

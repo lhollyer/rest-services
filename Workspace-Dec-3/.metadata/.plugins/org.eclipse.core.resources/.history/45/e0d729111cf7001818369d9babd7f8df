@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config:ProjectConfig xmlns:config="http://www.tibco.com/XPD/projectConfig">
+  <projectDetails id="com.example.restswagger">
+    <globalDestinations/>
+  </projectDetails>
+  <config:specialFolders>
+    <config:folder id="_r2ObIPcTEeiHX8-PwJZu4Q" kind="com.tibco.amx.zion.schema" location="Schemas"/>
+    <config:folder id="_r2Q3YPcTEeiHX8-PwJZu4Q" kind="com.tibco.bw.process.folder" location="Processes"/>
+    <config:folder id="_r2SskPcTEeiHX8-PwJZu4Q" kind="wsdl" location="Service Descriptors"/>
+    <config:folder id="_r2T6sPcTEeiHX8-PwJZu4Q" kind="com.tibco.amx.zion.resource" location="Resources"/>
+  </config:specialFolders>
+</config:ProjectConfig>

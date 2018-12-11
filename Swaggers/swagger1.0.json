@@ -1,0 +1,276 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "No description",
+    "version" : "1.0.0",
+    "title" : "customers"
+  },
+  "consumes" : [ "application/json" ],
+  "produces" : [ "application/json" ],
+  "paths" : {
+    "/customers" : {
+      "get" : {
+        "summary" : "get customer list",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/customer"
+              }
+            }
+          },
+          "500" : {
+            "description" : "Status 500",
+            "schema" : {
+              "$ref" : "#/definitions/errorObject"
+            }
+          }
+        }
+      }
+    },
+    "/customers/{customerId}" : {
+      "get" : {
+        "summary" : "get customer details",
+        "description" : "display all customer details",
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/customer"
+            }
+          },
+          "500" : {
+            "description" : "Status 500",
+            "schema" : {
+              "$ref" : "#/definitions/errorObject"
+            }
+          }
+        }
+      },
+      "put" : {
+        "summary" : "update customer details",
+        "consumes" : [ ],
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/customer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/successObject"
+            }
+          },
+          "201" : {
+            "description" : "Status 201",
+            "schema" : {
+              "$ref" : "#/definitions/successObject"
+            }
+          },
+          "500" : {
+            "description" : "Status 500",
+            "schema" : {
+              "$ref" : "#/definitions/errorObject"
+            }
+          }
+        }
+      },
+      "parameters" : [ {
+        "name" : "customerId",
+        "in" : "path",
+        "required" : true,
+        "type" : "string"
+      } ]
+    },
+    "/customers/{customerId}/orders" : {
+      "get" : {
+        "summary" : "get customer's orders",
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/order"
+              }
+            }
+          },
+          "500" : {
+            "description" : "Status 500",
+            "schema" : {
+              "$ref" : "#/definitions/errorObject"
+            }
+          }
+        }
+      },
+      "post" : {
+        "summary" : "add customer's order",
+        "consumes" : [ ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/order"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Status 201",
+            "schema" : {
+              "$ref" : "#/definitions/successObject"
+            }
+          },
+          "500" : {
+            "description" : "Status 500",
+            "schema" : {
+              "$ref" : "#/definitions/errorObject"
+            }
+          }
+        }
+      },
+      "parameters" : [ {
+        "name" : "customerId",
+        "in" : "path",
+        "required" : true,
+        "type" : "string"
+      } ]
+    },
+    "/customers/{customerId}/orders/{orderId}" : {
+      "get" : {
+        "summary" : "get customer's specific order",
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "orderId",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/order"
+            }
+          },
+          "500" : {
+            "description" : "Status 500",
+            "schema" : {
+              "$ref" : "#/definitions/errorObject"
+            }
+          }
+        }
+      },
+      "parameters" : [ {
+        "name" : "customerId",
+        "in" : "path",
+        "required" : true,
+        "type" : "string"
+      }, {
+        "name" : "orderId",
+        "in" : "path",
+        "required" : true,
+        "type" : "string"
+      } ]
+    }
+  },
+  "definitions" : {
+    "customer" : {
+      "type" : "object",
+      "required" : [ "address", "id", "mobile", "name", "postcode" ],
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "mobile" : {
+          "type" : "string"
+        },
+        "address" : {
+          "type" : "string"
+        },
+        "postcode" : {
+          "type" : "string"
+        }
+      }
+    },
+    "order" : {
+      "type" : "object",
+      "required" : [ "lineItems", "orderId", "status" ],
+      "properties" : {
+        "orderId" : {
+          "type" : "string"
+        },
+        "lineItems" : {
+          "required" : [ "product" ],
+          "type" : "object",
+          "properties" : {
+            "product" : {
+              "type" : "string"
+            }
+          }
+        },
+        "status" : {
+          "type" : "string"
+        }
+      }
+    },
+    "errorObject" : {
+      "type" : "object",
+      "required" : [ "errorCode", "errorId", "errorMsg" ],
+      "properties" : {
+        "errorId" : {
+          "type" : "string"
+        },
+        "errorCode" : {
+          "type" : "string"
+        },
+        "errorMsg" : {
+          "type" : "string"
+        }
+      }
+    },
+    "successObject" : {
+      "type" : "object",
+      "required" : [ "href", "id" ],
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "href" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

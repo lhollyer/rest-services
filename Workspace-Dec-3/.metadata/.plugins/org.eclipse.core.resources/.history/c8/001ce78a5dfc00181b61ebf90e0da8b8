@@ -1,0 +1,283 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Summary about the new REST service.",
+    "description" : "Summary about the new REST service."
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/resource" : {
+      "post" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "post-resource",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/custElement"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a custElement to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/custElement"
+            },
+            "headers" : { }
+          },
+          "901" : {
+            "description" : "Custom",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "902" : {
+            "description" : "Custom",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "202" : {
+            "description" : "Accepted",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "204" : {
+            "description" : "No Content",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "301" : {
+            "description" : "Moved Permanently",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "303" : {
+            "description" : "See Other",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "304" : {
+            "description" : "Not Modified",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "307" : {
+            "description" : "Temporary Redirect",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "406" : {
+            "description" : "Not Acceptable",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "503" : {
+            "description" : "Service Unavailable",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "409" : {
+            "description" : "Conflict",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "410" : {
+            "description" : "Gone",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "412" : {
+            "description" : "Precondition Failed",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "415" : {
+            "description" : "Unsupported Media Type",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "get" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "get-resource",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "a custElement to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/custElement"
+            }
+          }
+        }
+      },
+      "put" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "put-resource",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/custElement"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "delete-resource",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string",
+                "uniqueItems" : false
+              }
+            },
+            "headers" : { }
+          },
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "202" : {
+            "description" : "Accepted",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "204" : {
+            "description" : "No Content",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "custElement" : {
+      "type" : "object",
+      "required" : [ "example" ],
+      "properties" : {
+        "receiverTransactionId" : {
+          "type" : "string"
+        },
+        "merchantCategoryCode" : {
+          "type" : "integer"
+        },
+        "authIdResponse" : {
+          "type" : "string"
+        },
+        "responseCode" : {
+          "type" : "string"
+        },
+        "merchantName" : {
+          "type" : "string"
+        },
+        "merchantCity" : {
+          "type" : "string"
+        },
+        "merchantCountryCode" : {
+          "type" : "string"
+        },
+        "merchantTerminalID" : {
+          "type" : "string"
+        },
+        "merchantID" : {
+          "type" : "string"
+        },
+        "merchantVerificationValue" : {
+          "type" : "integer"
+        },
+        "feeProgramIndicator" : {
+          "type" : "string"
+        },
+        "example" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

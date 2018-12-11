@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/customer" xmlns:tns="http://www.example.org/customer" elementFormDefault="qualified">
+
+    <element name="custID" type="string"></element>
+
+    <element name="fName" type="string"></element>
+
+    <element name="lName" type="string"></element>
+</schema>

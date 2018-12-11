@@ -1,0 +1,275 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "",
+    "description" : ""
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/book/{ISBN}" : {
+      "get" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "getBook",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "ISBN",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a Book to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/Book"
+            },
+            "headers" : { }
+          },
+          "503" : {
+            "description" : "Service Unavailable"
+          }
+        }
+      },
+      "put" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "putBook",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/Book"
+          },
+          "required" : true
+        }, {
+          "name" : "ISBN",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a Book to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/Book"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "deleteBook",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "ISBN",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/books" : {
+      "post" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "postBooks",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/Books"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a Books to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/Books"
+            },
+            "headers" : { }
+          },
+          "503" : {
+            "description" : "Service Unavailable"
+          }
+        }
+      },
+      "get" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "getBooks",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "a Books to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/Books"
+            }
+          }
+        }
+      }
+    },
+    "/booksbyprice" : {
+      "get" : {
+        "summary" : "This service returns all the books whose price is greater than the amount specified",
+        "description" : "",
+        "operationId" : "get-booksbyprice",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "price",
+          "in" : "query",
+          "description" : "",
+          "type" : "integer",
+          "format" : "int32",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a Book to be returned",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Book",
+                "uniqueItems" : false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/book/{ISBN}/events" : {
+      "get" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "getBook",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "ISBN",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a Events to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/Events"
+            },
+            "headers" : { }
+          },
+          "503" : {
+            "description" : "Service Unavailable"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Events" : {
+      "type" : "object",
+      "properties" : {
+        "Event" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Event",
+            "uniqueItems" : false
+          }
+        }
+      }
+    },
+    "Book" : {
+      "type" : "object",
+      "properties" : {
+        "isbn" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "authorName" : {
+          "type" : "string"
+        },
+        "releaseDate" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "vintage" : {
+          "type" : "boolean"
+        },
+        "signed" : {
+          "type" : "boolean"
+        },
+        "price" : {
+          "type" : "number"
+        }
+      }
+    },
+    "Event" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "summary" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "authorName" : {
+          "type" : "string"
+        },
+        "bookIsbn" : {
+          "type" : "string"
+        },
+        "date" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Books" : {
+      "type" : "object",
+      "properties" : {
+        "Book" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Book",
+            "uniqueItems" : false
+          }
+        }
+      }
+    }
+  }
+}

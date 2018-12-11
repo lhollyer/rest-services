@@ -1,0 +1,162 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Summary about the new REST service.",
+    "description" : "Summary about the new REST service."
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/resource" : {
+      "post" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "post-resource",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/custElement"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a custElement to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/custElement"
+            }
+          }
+        }
+      },
+      "get" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "get-resource",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "a custElement to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/custElement"
+            }
+          }
+        }
+      },
+      "put" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "put-resource",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/custElement"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "delete-resource",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string",
+                "uniqueItems" : false
+              }
+            },
+            "headers" : { }
+          },
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "202" : {
+            "description" : "Accepted",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "204" : {
+            "description" : "No Content",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "custElement" : {
+      "type" : "object",
+      "required" : [ "example" ],
+      "properties" : {
+        "receiverTransactionId" : {
+          "type" : "string"
+        },
+        "merchantCategoryCode" : {
+          "type" : "integer"
+        },
+        "authIdResponse" : {
+          "type" : "string"
+        },
+        "responseCode" : {
+          "type" : "string"
+        },
+        "merchantName" : {
+          "type" : "string"
+        },
+        "merchantCity" : {
+          "type" : "string"
+        },
+        "merchantCountryCode" : {
+          "type" : "string"
+        },
+        "merchantTerminalID" : {
+          "type" : "string"
+        },
+        "merchantID" : {
+          "type" : "string"
+        },
+        "merchantVerificationValue" : {
+          "type" : "integer"
+        },
+        "feeProgramIndicator" : {
+          "type" : "string"
+        },
+        "example" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

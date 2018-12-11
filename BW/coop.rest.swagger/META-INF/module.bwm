@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:JsonSchema="/T1544457296060Converted/JsonSchema" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_COWfAPyLEeiXU8coCxH9AA" targetNamespace="http://tns.tibco.com/bw/composite/coop.rest.swagger" name="coop.rest.swagger" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_juyv0PyLEeiXU8coCxH9AA" name="customers" promote="ComponentProcess/customers">
+    <sca:interface.wsdl xmi:id="_ju6roPyLEeiXU8coCxH9AA" interface="http://xmlns.example.com/20181210155111PLT#wsdl.interface(customers)" scaext:wsdlLocation="../Processes/coop/rest/swagger/Process.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_ju_kIPyLEeiXU8coCxH9AA" name="RestService" path="/customers" docBasePath="http://localhost:7777/coop.rest.swagger" docResourcePath="Customers" basePath="/" connector="coop.rest.swagger.Process" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/swagger20.json">
+      <operation xmi:id="_jvAyQPyLEeiXU8coCxH9AA" operationName="get" httpMethod="GET" responseStyle="array">
+        <responseStatus xmi:id="_jvTGIPyLEeiXU8coCxH9AA" statusCode="500" reasonPhrase="Status 500" elementQName="JsonSchema:errorObject"/>
+        <responseStatus xmi:id="_XG_EUPyXEeiXU8coCxH9AA" statusCode="200" reasonPhrase="OK" dataType="string"/>
+      </operation>
+      <parameters xmi:id="_jvViYfyLEeiXU8coCxH9AA"/>
+      <import xmi:id="_jvViYPyLEeiXU8coCxH9AA" importType="http://www.w3.org/2001/XMLSchema" namespace="/T1544457296060Converted/JsonSchema"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_jvAyQfyLEeiXU8coCxH9AA" bindingName="RestService"/>
+  </sca:service>
+  <sca:service xmi:id="_seaU4vyXEeiXU8coCxH9AA" name="customers1" promote="ComponentProcess/customers1">
+    <sca:interface.wsdl xmi:id="_seaU5vyXEeiXU8coCxH9AA" interface="http://xmlns.example.com/20181210155111PLT#wsdl.interface(customers1)" scaext:wsdlLocation="../Processes/coop/rest/swagger/Process.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_sebjAPyXEeiXU8coCxH9AA" name="RestService1" path="/customers/{customerId}" docBasePath="http://localhost:7777/coop.rest.swagger" docResourcePath="Customers" basePath="/" connector="coop.rest.swagger.Process" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/swagger20.json">
+      <operation xmi:id="_sebjAfyXEeiXU8coCxH9AA" operationName="get" httpMethod="GET" notes="display all customer details" responseStyle="element">
+        <parameters xmi:id="_sed_RPyXEeiXU8coCxH9AA">
+          <parameterMapping xmi:id="_sed_RfyXEeiXU8coCxH9AA" parameterName="customerId" parameterType="Query" dataType="string" required="true"/>
+        </parameters>
+        <responseStatus xmi:id="_sedYMPyXEeiXU8coCxH9AA" statusCode="500" reasonPhrase="Status 500" elementQName="JsonSchema:errorObject"/>
+      </operation>
+      <operation xmi:id="_sebjAvyXEeiXU8coCxH9AA" operationName="put" httpMethod="PUT" responseStyle="element" requestStyle="element">
+        <parameters xmi:id="_sed_RvyXEeiXU8coCxH9AA">
+          <parameterMapping xmi:id="_sed_R_yXEeiXU8coCxH9AA" parameterName="customerId" parameterType="Query" dataType="string"/>
+        </parameters>
+        <responseStatus xmi:id="_sed_QPyXEeiXU8coCxH9AA" statusCode="201" reasonPhrase="Status 201" elementQName="JsonSchema:successObject"/>
+        <responseStatus xmi:id="_sed_QfyXEeiXU8coCxH9AA" statusCode="500" reasonPhrase="Status 500" elementQName="JsonSchema:errorObject"/>
+      </operation>
+      <parameters xmi:id="_sed_QvyXEeiXU8coCxH9AA">
+        <parameterMapping xmi:id="_sed_Q_yXEeiXU8coCxH9AA" parameterName="customerId" parameterType="Path" dataType="string" required="true"/>
+      </parameters>
+      <import xmi:id="_sedYMfyXEeiXU8coCxH9AA" importType="http://www.w3.org/2001/XMLSchema" namespace="/T1544457296060Converted/JsonSchema"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_sebjA_yXEeiXU8coCxH9AA" bindingName="RestService1"/>
+  </sca:service>
+  <sca:service xmi:id="_ysuckP0sEeiXU8coCxH9AA" name="customers-orders" promote="ComponentProcess/customers-orders">
+    <sca:interface.wsdl xmi:id="_ysuclP0sEeiXU8coCxH9AA" interface="http://xmlns.example.com/20181210155111PLT#wsdl.interface(customers-orders)" scaext:wsdlLocation="../Processes/coop/rest/swagger/Process.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_ysvqsP0sEeiXU8coCxH9AA" name="RestService2" path="/customers/{customerId}/orders" docBasePath="http://localhost:7777/coop.rest.swagger" docResourcePath="Customers" basePath="/" connector="coop.rest.swagger.Process" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/swagger20.json">
+      <operation xmi:id="_yswRwP0sEeiXU8coCxH9AA" operationName="post" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <responseStatus xmi:id="_ys9tIP0sEeiXU8coCxH9AA" statusCode="201" reasonPhrase="Status 201" elementQName="JsonSchema:successObject"/>
+        <responseStatus xmi:id="_ys9tIv0sEeiXU8coCxH9AA" statusCode="500" reasonPhrase="Status 500" elementQName="JsonSchema:errorObject"/>
+      </operation>
+      <operation xmi:id="_yswRwf0sEeiXU8coCxH9AA" operationName="get" httpMethod="GET" responseStyle="array">
+        <parameters xmi:id="_ys9tJv0sEeiXU8coCxH9AA">
+          <parameterMapping xmi:id="_ys-UMP0sEeiXU8coCxH9AA" parameterName="customerId" parameterType="Query" dataType="string"/>
+        </parameters>
+        <responseStatus xmi:id="_ys9tI_0sEeiXU8coCxH9AA" statusCode="500" reasonPhrase="Status 500" elementQName="JsonSchema:errorObject"/>
+      </operation>
+      <parameters xmi:id="_ys9tJP0sEeiXU8coCxH9AA">
+        <parameterMapping xmi:id="_ys9tJf0sEeiXU8coCxH9AA" parameterName="customerId" parameterType="Path" dataType="string" required="true"/>
+      </parameters>
+      <import xmi:id="_ys9tIf0sEeiXU8coCxH9AA" importType="http://www.w3.org/2001/XMLSchema" namespace="/T1544457296060Converted/JsonSchema"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_yswRwv0sEeiXU8coCxH9AA" bindingName="RestService2"/>
+  </sca:service>
+  <sca:property xmi:id="_CX8f4PyLEeiXU8coCxH9AA" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_CYG38PyLEeiXU8coCxH9AA" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_CYJ7QPyLEeiXU8coCxH9AA" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_CYOMsPyLEeiXU8coCxH9AA" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_CYRQAPyLEeiXU8coCxH9AA" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_CYU6YPyLEeiXU8coCxH9AA" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_CYX9sPyLEeiXU8coCxH9AA" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_CYaZ8PyLEeiXU8coCxH9AA" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_CYcPIPyLEeiXU8coCxH9AA" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="__lGykPyPEeiXU8coCxH9AA" name="HOST" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="__x8UsPyPEeiXU8coCxH9AA" name="PORT" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="__zfM0PyPEeiXU8coCxH9AA" name="dbDriver" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="__01QoPyPEeiXU8coCxH9AA" name="dbPassword" type="property:password" scaext:simpleValue="#!m6qrwL5r9sVprfI+t3ZPbw==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="__2KtYPyPEeiXU8coCxH9AA" name="dbURL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="__3aDgPyPEeiXU8coCxH9AA" name="dbUserName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_CT67gPyLEeiXU8coCxH9AA" name="ComponentProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_CT67gfyLEeiXU8coCxH9AA" processName="coop.rest.swagger.Process"/>
+    <sca:service xmi:id="_jutQQPyLEeiXU8coCxH9AA" name="customers">
+      <sca:interface.wsdl xmi:id="_juvFcPyLEeiXU8coCxH9AA" interface="http://xmlns.example.com/20181210155111PLT#wsdl.interface(customers)"/>
+    </sca:service>
+    <sca:service xmi:id="_seaU4PyXEeiXU8coCxH9AA" name="customers1">
+      <sca:interface.wsdl xmi:id="_seaU4fyXEeiXU8coCxH9AA" interface="http://xmlns.example.com/20181210155111PLT#wsdl.interface(customers1)"/>
+    </sca:service>
+    <sca:service xmi:id="_yst1gP0sEeiXU8coCxH9AA" name="customers-orders">
+      <sca:interface.wsdl xmi:id="_yst1gf0sEeiXU8coCxH9AA" interface="http://xmlns.example.com/20181210155111PLT#wsdl.interface(customers-orders)"/>
+    </sca:service>
+  </sca:component>
+</sca:composite>
